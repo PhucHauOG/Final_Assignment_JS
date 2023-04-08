@@ -79,7 +79,6 @@ wholeCartWindow.classList.remove('hide')
 })
 
 cartIcon.addEventListener('mouseleave', ()=>{
-    // if(wholeCartWindow.classList.contains('hide'))
     setTimeout( () =>{
         if(wholeCartWindow.inWindow===0){
             wholeCartWindow.classList.add('hide')
