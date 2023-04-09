@@ -1,7 +1,6 @@
 class CartItem{
-    constructor(name, desc, img, price){
+    constructor(name,  img, price){
         this.name = name
-        this.desc = desc
         this.img=img
         this.price = price
         this.quantity = 1
@@ -47,7 +46,7 @@ class LocalCart{
     if(cart.length===0)
         localStorage.clear()
     else
-        localStorage.setItem(LocalCart.key,  JSON.stringify(Object.fromEntries(cart)))
+        localStorage.setItem(LocalCart.key, JSON.stringify(Object.fromEntries(cart)))
         updateCartUI()
     }
 }
@@ -64,10 +63,9 @@ function addItemFunction(e){
     const id = e.target.parentElement.parentElement.parentElement.getAttribute("data-id")
     const img = e.target.parentElement.parentElement.previousElementSibling.src
     const name = e.target.parentElement.previousElementSibling.textContent
-    const desc = e.target.parentElement.children[0].textContent
-    let price = e.target.parentElement.children[1].textContent
+    let price = e.target.parentElement.children[0].textContent
     price = price.replace("Price: $", '')
-    const item = new CartItem(name, desc, img, price)
+    const item = new CartItem(name, img, price)
     LocalCart.addItemToLocalCart(id, item)
  console.log(price)
 }
